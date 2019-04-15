@@ -1,8 +1,10 @@
 package me.dkzwm.widget.srl.sample.adapter;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
 import java.util.List;
 
 /**
@@ -11,11 +13,16 @@ import java.util.List;
  * @author dkzwm
  */
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    private List<? extends Fragment> mViewPagerFragments;
+    private List<Fragment> mViewPagerFragments;
 
-    public ViewPagerAdapter(FragmentManager fm, List<? extends Fragment> list) {
+    public ViewPagerAdapter(FragmentManager fm, List<Fragment> list) {
         super(fm);
         mViewPagerFragments = list;
+    }
+
+    public  void addFragment(Fragment fragment) {
+        mViewPagerFragments.add(fragment);
+        notifyDataSetChanged();
     }
 
     @Override
@@ -26,5 +33,10 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return mViewPagerFragments.size();
+    }
+
+    @Override
+    public int getItemPosition(@NonNull Object object) {
+        return POSITION_NONE;
     }
 }

@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -28,7 +29,7 @@ public class TestNestedWithViewPagerActivity extends AppCompatActivity {
             new int[] {Color.WHITE, Color.GREEN, Color.YELLOW, Color.BLUE, Color.RED, Color.BLACK};
     private MaterialSmoothRefreshLayout mRefreshLayout;
     private Handler mHandler = new Handler();
-    private List<NestedPageFragment> mFragments;
+    private List<Fragment> mFragments;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,7 +64,7 @@ public class TestNestedWithViewPagerActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         for (int i = 0; i < mFragments.size(); i++) {
-                                            NestedPageFragment fragment = mFragments.get(i);
+                                            NestedPageFragment fragment = (NestedPageFragment) mFragments.get(i);
                                             fragment.updateData();
                                         }
                                         mRefreshLayout.refreshComplete();
@@ -79,7 +80,7 @@ public class TestNestedWithViewPagerActivity extends AppCompatActivity {
                                     @Override
                                     public void run() {
                                         for (int i = 0; i < mFragments.size(); i++) {
-                                            NestedPageFragment fragment = mFragments.get(i);
+                                            NestedPageFragment fragment = (NestedPageFragment) mFragments.get(i);
                                             fragment.appendData();
                                         }
                                         mRefreshLayout.refreshComplete();

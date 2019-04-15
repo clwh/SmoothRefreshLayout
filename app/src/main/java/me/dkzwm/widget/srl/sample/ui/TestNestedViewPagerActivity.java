@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -37,7 +38,7 @@ public class TestNestedViewPagerActivity extends AppCompatActivity {
                     }
                 });
         ViewPager viewPager = findViewById(R.id.viewPager_with_nested_pager);
-        List<NestedPageWithSrlFragment> fragments = new ArrayList<>();
+        List<Fragment> fragments = new ArrayList<>();
         for (int color : sColors) {
             fragments.add(NestedPageWithSrlFragment.newInstance(color));
         }

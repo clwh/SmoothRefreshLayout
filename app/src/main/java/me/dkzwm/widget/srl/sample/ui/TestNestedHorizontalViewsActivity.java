@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -66,7 +67,7 @@ public class TestNestedHorizontalViewsActivity extends AppCompatActivity {
                     }
                 });
         mViewPager = findViewById(R.id.viewPager_test_nested_horizontal_views_pager);
-        List<PageFragment> fragments = new ArrayList<>();
+        List<Fragment> fragments = new ArrayList<>();
         for (int i = 0; i < sColors.length; i++) {
             fragments.add(PageFragment.newInstance(i, sColors[i]));
         }
